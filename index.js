@@ -1,29 +1,34 @@
 // use strict;
-alert('Hi there!');
+const userName = prompt('Please enter your first name', 'John');
+const userLastName = prompt('now your last name', 'Doe');
+const userAge = prompt('and your age (whole number)');
 
-let tempVar = 42;
-console.log(tempVar + ' is a '+ typeof tempVar);
-// Output: "number"
+const YOUNG_AGE = 18;
+const QUITE_OLD_AGE = 60;
+const VERY_OLD_AGE = 85;
+const IMPOSSIBLE_AGE = 100;
 
-tempVar = 15587445971115889554447;
-console.log(tempVar + ' is a '+ typeof tempVar);
-// Output: BigInt
+if (!userName?.trim() || !userLastName?.trim() || !userAge?.trim()) {
+    alert('You did not enter all necessary data, bye!');
+}
 
-tempVar = "42";
-console.log(tempVar + ' is a '+ typeof tempVar);
-// Output: "string"
+else if (!Number.isInteger(+userAge) || (+userAge < 0) || (+userAge > IMPOSSIBLE_AGE)) {
+    alert(`I don't believe that ${userAge} is your real age ;) `);
+}
 
-tempVar = true;
-console.log(tempVar + ' is '+ typeof tempVar);
-// Output: "boolean"
-
-console.log('undeclaredVariable is '+ typeof undeclaredVariable);
-// Output: "undefined"
-
-tempVar = null;
-console.log(tempVar + ' is an '+ typeof tempVar);
-// Output: object
-
-tempVar = {};
-console.log(tempVar + ' is an '+ typeof tempVar);
-// Output: object
+else {
+    let greeting = `Hello, ${userName} ${userLastName}! `;
+    if (+userAge < YOUNG_AGE) {
+        greeting += "What's up?";
+    }
+    else if (+userAge < QUITE_OLD_AGE) {
+        greeting += "Welcome to our site!";
+    }
+    else if (+userAge < VERY_OLD_AGE) {
+        greeting += "You are amazing!";
+    }
+    else {
+        greeting += "How are you today?";
+    }
+    alert(greeting);
+}
