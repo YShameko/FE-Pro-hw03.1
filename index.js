@@ -1,4 +1,3 @@
-// use strict;
 alert('Hi there!');
 
 let tempVar = 42;
